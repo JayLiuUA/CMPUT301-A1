@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class RecordEmotion extends AppCompatActivity {
+    private Button cancelBut;
     private Button saveBut;
     private EditText commentText;
     private ArrayList<Record> Records = new ArrayList<Record>();
@@ -46,6 +47,29 @@ public class RecordEmotion extends AppCompatActivity {
         Intent intent = getIntent();
         this.emotionName = intent.getStringExtra("emotionName");
 
+        // comment is not given yet, so it is null
+        switch(emotionName) {
+            case "Love":
+                newRecord = new Record("Love", null, date);
+                break;
+            case "Joy":
+                newRecord = new Record("Joy", null, date);
+                break;
+            case "Surprise":
+                newRecord = new Record("Surprise", null, date);
+                break;
+            case "Anger":
+                newRecord = new Record("Anger", null, date);
+                break;
+            case "Sadness":
+                newRecord = new Record("Sadness", null, date);
+                break;
+            case "Fear":
+                newRecord = new Record("Fear", null, date);
+                break;
+        }
+
+        saveRecord(newRecord);  // once emotion button is clicked, we save the new record
 
         // this is the "save" button
         saveBut = (Button)findViewById(R.id.ButSave);
@@ -56,38 +80,26 @@ public class RecordEmotion extends AppCompatActivity {
                 commentText = findViewById(R.id.commentText);
                 // transform it to string for better readbility
                 comment = commentText.getText().toString();
-                switch(emotionName) {
-                    case "Love":
-                        newRecord = new Record("Love", comment, date);
-                        break;
-                    case "Joy":
-                        newRecord = new Record("Joy", comment, date);
-                        break;
-                    case "Surprise":
-                        newRecord = new Record("Surprise", comment, date);
-                        break;
-                    case "Anger":
-                        newRecord = new Record("Anger", comment, date);
-                        break;
-                    case "Sadness":
-                        newRecord = new Record("Sadness", comment, date);
-                        break;
-                    case "Fear":
-                        newRecord = new Record("Fear", comment, date);
-                        break;
-                }
-                saveRecord(newRecord);  // once save button is clicked, we save the new record
-                Intent intent = new Intent(RecordEmotion.this, MainActivity.class);
-                startActivity(intent);
+                addComment(comment);
+                finish();
             }
         });
+
+        cancelBut = (Button)findViewById(R.id.cancelBut);
+        cancelBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comment = "";
+                addComment(comment);
+                finish();
+            }
+        });
+
     }
-
-
 
     protected void saveRecord(Record someRecord) {
         try {
-            String newRecordString = someRecord.toString();  // transform record to more readable form
+            String newRecordString = someRecord.toStringWithouComment();  // transform record to more readable form
             FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_APPEND);
             fos.write(newRecordString.getBytes());
 
@@ -101,5 +113,23 @@ public class RecordEmotion extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    protected void addComment(String inputComment){
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_APPEND);
+            fos.write((inputComment+"\n").getBytes());
+
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

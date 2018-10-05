@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecordEmotion"
-            android:parentActivityName=".MainActivity" />
+            android:name=".RecordEmotion" />
         <activity android:name=".History"></activity>
     </application>
 

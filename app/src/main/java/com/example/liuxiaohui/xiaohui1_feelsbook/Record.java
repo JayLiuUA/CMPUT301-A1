@@ -9,7 +9,7 @@ public class Record {
         this.emotionName = name;
         // if no comment is given, set comment to a empty space
         if (comment == null) {
-            this.comment = "....";
+            this.comment = "";
         } else {
             this.comment = comment;
         }
@@ -32,7 +32,11 @@ public class Record {
         this.comment = inputComment;
     }
 
-    public String toString(){
+    public String toStringWithouComment(){
+        return this.date.toString() + " | " + this.emotionName + " | " + this.comment;
+    }
+
+    public String toStringWithComment() {
         return this.date.toString() + " | " + this.emotionName + " | " + this.comment + "\n";
     }
 }

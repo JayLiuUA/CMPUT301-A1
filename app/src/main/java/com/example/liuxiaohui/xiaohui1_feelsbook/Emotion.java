@@ -15,7 +15,7 @@ public class Emotion {
     // construtor
     Emotion(String name) {
         this.emotionName = name;
-        resetCount();
+        this.count = 0;
 
     }
 
