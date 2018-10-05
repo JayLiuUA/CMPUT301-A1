@@ -1,4 +1,4 @@
-// This is the history page
+// This is the history page, allows user to view and delete histories.
 
 package com.example.liuxiaohui.xiaohui1_feelsbook;
 
@@ -59,14 +59,16 @@ public class History extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // the string record to be deleted
                 String recordToDel = (String) lv.getItemAtPosition(position);
-
+                // turn records to list for easy removing
                 List<String> recordList = new ArrayList<String>(Arrays.asList(records));
-                recordList.remove(recordToDel);
+                recordList.remove(recordToDel);  // deleting the record
                 records = recordList.toArray(new String[0]);
+                // rewrite deleted records into file
                 saveUpdatedRecord(records);
 
                 adap.notifyDataSetChanged();
 
+                // prompt to user
                 Toast.makeText(History.this, "Record Deleted", Toast.LENGTH_LONG).show();
 
                 finish();  // take user to home page once a record is deleted

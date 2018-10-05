@@ -120,6 +120,7 @@ public class RecordEmotion extends AppCompatActivity {
         }
     }
 
+    // add comment after a record
     protected void addComment(String inputComment){
         try {
             FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_APPEND);

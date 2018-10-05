@@ -147,70 +147,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loadFromFile();
+        loadFromFile();  // reload data when recreated
 
         init();
 
     }
 
-    /*
-    protected void onResume() {
-        super.onResume();
-
-        loadFromFile();
-
-        resumeCount();
-
-    }
-    */
-
-    protected int loadCount(String emotionName) {
-        int index = 0;
-        switch(emotionName){
-            case "Love":
-                index = 0;
-                break;
-            case "Joy":
-                index = 1;
-                break;
-            case "Surprise":
-                index = 2;
-                break;
-            case "Anger":
-                index = 3;
-                break;
-            case "Sadness":
-                index = 4;
-                break;
-            case "Fear":
-                index = 5;
-                break;
-
-        }
-
-        return Emotions.get(index).getCount();
-    }
-    /*
-        protected void resumeCount() {
-            int loveCount = loadCount("Love");
-            Love.setCount(loveCount);
-
-            int joyCount = loadCount("Joy");
-            Joy.setCount((joyCount));
-
-            int surpriseCount = loadCount("Surprise");
-            Surprise.setCount((surpriseCount));
-
-            int angerCount = loadCount("Anger");
-            Anger.setCount((angerCount));
-
-            int sadnessCount = loadCount("Sadness");
-            Sadness.setCount((sadnessCount));
-
-            int fearCount = loadCount("Fear");
-            Fear.setCount((fearCount));
-        }
-    */
     // imitated from lab 3 code
     private void loadFromFile() {
         try {
@@ -234,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // save emotions info into file
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME, 0);
