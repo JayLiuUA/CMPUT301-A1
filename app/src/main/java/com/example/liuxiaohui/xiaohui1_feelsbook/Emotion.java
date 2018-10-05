@@ -24,11 +24,6 @@ public class Emotion {
         return this.count;
     }
 
-    // reload previous count when APP is restarted
-    public void setCount(int previousCount){
-        this.count = previousCount;
-    }
-
     public void increaseCount(){
         this.count = this.count + 1;
     }
