@@ -7,22 +7,19 @@ package com.example.liuxiaohui.xiaohui1_feelsbook;
 import java.util.Date;
 import android.view.View;
 
-
+// Emotion can be Joy, Love, etc...
 public class Emotion {
     private int count;
     private String emotionName;
 
-    // construtor
+    // construtor for emotion
     Emotion(String name) {
         this.emotionName = name;
-        this.count = 0;
+        this.count = 0;  // initial count for a emotion is 0
 
     }
 
-    public void resetCount(){
-        this.count=0;
-    }
-
+    // enables user to get the count value of one motion
     public int getCount(){
         return this.count;
     }

@@ -1,3 +1,5 @@
+/* This is the activity that allows user to make a record of a emotion and add a moment of that */
+
 package com.example.liuxiaohui.xiaohui1_feelsbook;
 
 import android.content.Context;
@@ -23,6 +25,10 @@ import java.util.Date;
 import java.util.Locale;
 
 public class RecordEmotion extends AppCompatActivity {
+
+    // final definition of the filename storing history
+    private static final String FILENAME = "history.sav";
+
     private Button cancelBut;
     private Button saveBut;
     private EditText commentText;
@@ -32,7 +38,6 @@ public class RecordEmotion extends AppCompatActivity {
     private String comment;
     private String emotionName;
 
-    private static final String FILENAME = "history.sav";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
