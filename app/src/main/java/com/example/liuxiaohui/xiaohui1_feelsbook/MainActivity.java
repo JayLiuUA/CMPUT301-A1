@@ -59,27 +59,6 @@ public class MainActivity extends AppCompatActivity {
         ButSadness = (Button)findViewById(R.id.ButSadness);
         ButFear = (Button)findViewById(R.id.ButFear);
         ButHistory = (Button)findViewById(R.id.ButHistory);
-        // add all emotion buttons to array
-
-        int loveCount = loadCount("Love");
-        Love.setCount(loveCount);
-        System.out.println(Love.getCount());
-
-        int joyCount = loadCount("Joy");
-        Joy.setCount((joyCount));
-
-        int surpriseCount = loadCount("Surprise");
-        Surprise.setCount((surpriseCount));
-
-        int angerCount = loadCount("Anger");
-        Anger.setCount((angerCount));
-
-        int sadnessCount = loadCount("Sadness");
-        Sadness.setCount((sadnessCount));
-
-        int fearCount = loadCount("Fear");
-        Fear.setCount((fearCount));
-
 
         ButLove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,27 +190,27 @@ public class MainActivity extends AppCompatActivity {
 
         return Emotions.get(index).getCount();
     }
-/*
-    protected void resumeCount() {
-        int loveCount = loadCount("Love");
-        Love.setCount(loveCount);
+    /*
+        protected void resumeCount() {
+            int loveCount = loadCount("Love");
+            Love.setCount(loveCount);
 
-        int joyCount = loadCount("Joy");
-        Joy.setCount((joyCount));
+            int joyCount = loadCount("Joy");
+            Joy.setCount((joyCount));
 
-        int surpriseCount = loadCount("Surprise");
-        Surprise.setCount((surpriseCount));
+            int surpriseCount = loadCount("Surprise");
+            Surprise.setCount((surpriseCount));
 
-        int angerCount = loadCount("Anger");
-        Anger.setCount((angerCount));
+            int angerCount = loadCount("Anger");
+            Anger.setCount((angerCount));
 
-        int sadnessCount = loadCount("Sadness");
-        Sadness.setCount((sadnessCount));
+            int sadnessCount = loadCount("Sadness");
+            Sadness.setCount((sadnessCount));
 
-        int fearCount = loadCount("Fear");
-        Fear.setCount((fearCount));
-    }
-*/
+            int fearCount = loadCount("Fear");
+            Fear.setCount((fearCount));
+        }
+    */
     // imitated from lab 3 code
     private void loadFromFile() {
         try {
