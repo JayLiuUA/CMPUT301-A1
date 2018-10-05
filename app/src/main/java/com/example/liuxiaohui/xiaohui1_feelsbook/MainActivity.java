@@ -1,6 +1,6 @@
 /* This is the home page
-* Part of this file is from Lonely Twitter by Joshua Campbell
-*/
+ * Part of this file is from Lonely Twitter by Joshua Campbell
+ */
 package com.example.liuxiaohui.xiaohui1_feelsbook;
 
 import android.content.Intent;
@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public Emotion Sadness = new Emotion("Sadness");
     public Emotion Fear = new Emotion("Fear");
     // create array of all 6 emotions in order
-    private ArrayList<Emotion> Emotions =
-            new ArrayList<>(Arrays.asList(Love, Joy, Surprise, Anger, Sadness, Fear));
+    public ArrayList<Emotion> Emotions = new ArrayList<>(Arrays.asList(Love, Joy, Surprise, Anger, Sadness, Fear));
 
     // initialize all buttons
     public Button ButLove;
@@ -50,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
     public Button ButSadness;
     public Button ButFear;
     public Button ButHistory;
-    // create empty array of buttons
-    private List<Button> Buttons = new ArrayList<>();
 
     public void init(){
 
@@ -63,7 +60,26 @@ public class MainActivity extends AppCompatActivity {
         ButFear = (Button)findViewById(R.id.ButFear);
         ButHistory = (Button)findViewById(R.id.ButHistory);
         // add all emotion buttons to array
-        this.Buttons = Arrays.asList(ButLove, ButJoy, ButSurprise, ButAnger, ButSadness, ButFear);
+
+        int loveCount = loadCount("Love");
+        Love.setCount(loveCount);
+        System.out.println(Love.getCount());
+
+        int joyCount = loadCount("Joy");
+        Joy.setCount((joyCount));
+
+        int surpriseCount = loadCount("Surprise");
+        Surprise.setCount((surpriseCount));
+
+        int angerCount = loadCount("Anger");
+        Anger.setCount((angerCount));
+
+        int sadnessCount = loadCount("Sadness");
+        Sadness.setCount((sadnessCount));
+
+        int fearCount = loadCount("Fear");
+        Fear.setCount((fearCount));
+
 
         ButLove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,10 +168,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //loadFromFile();
-        //resumeCount();
+        loadFromFile();
 
         init();
+
     }
 
     /*
@@ -195,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
         return Emotions.get(index).getCount();
     }
-
+/*
     protected void resumeCount() {
         int loveCount = loadCount("Love");
         Love.setCount(loveCount);
@@ -215,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         int fearCount = loadCount("Fear");
         Fear.setCount((fearCount));
     }
-
+*/
     // imitated from lab 3 code
     private void loadFromFile() {
         try {

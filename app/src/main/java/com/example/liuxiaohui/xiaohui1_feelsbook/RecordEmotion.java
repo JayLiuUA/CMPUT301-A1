@@ -71,7 +71,7 @@ public class RecordEmotion extends AppCompatActivity {
 
         saveRecord(newRecord);  // once emotion button is clicked, we save the new record
 
-        // this is the "save" button
+        // this is the "save" button, saving record to history
         saveBut = (Button)findViewById(R.id.ButSave);
         saveBut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +85,7 @@ public class RecordEmotion extends AppCompatActivity {
             }
         });
 
+        //
         cancelBut = (Button)findViewById(R.id.cancelBut);
         cancelBut.setOnClickListener(new View.OnClickListener() {
             @Override
